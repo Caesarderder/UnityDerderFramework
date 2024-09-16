@@ -1,6 +1,6 @@
 # DerderFramework：A lightweight Unity framework
 A lightweight single player Unity framework suitable for playing GameJam~
-Based on asynchronous programming, scene management is achieved through game objects, and QuickSheet supports table navigation.
+Based on asynchronous programming, Scene is replaced by gameobject(Act), QuickSheet supports table navigation.
 Framework content: Act manager, UI manager, Table Manager,State machine, Singleton mode registering in container, Event aggregator, UniRx.
 
 # Reference
