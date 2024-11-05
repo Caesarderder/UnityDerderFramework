@@ -13,24 +13,33 @@ public enum EActLoadType
     Additive,
 }
 
+public enum EAct
+{
+    None = -1,
+    HomeAct,
+    MonoBehaviorAct,
+    BurstAndJobsAct,
+    EcsAct
+}
+
 public struct SActLoadEvent
 {
-    public string ActName;
+    public EAct ActName;
 }
 
 public struct SActLoadedEvent
 {
-    public string ActName;
+    public EAct ActName;
 }
 
 public struct SActUnloadEvent
 {
-    public string ActName;
+    public EAct ActName;
 }
 
 public struct SActUnloadedEvent
 {
-    public string ActName;
+    public EAct ActName;
 }
 
 #endregion
@@ -46,7 +55,7 @@ public class ActManager
     /// <summary>
     /// 使用Addressable加载Act（GameObject），并根据加载类型进行相应操作
     /// </summary>
-    public async Task<ActBase> LoadAct(string address, EActLoadType type=EActLoadType.Only)
+    public async Task<ActBase> LoadAct(EAct actName, EActLoadType type=EActLoadType.Only)
     {
         // 如果加载类型为 Only，先卸载所有已加载的 Act
         if (type == EActLoadType.Only)
@@ -55,6 +64,7 @@ public class ActManager
         }
 
         AsyncOperationHandle<GameObject> handle;
+        var address = actName.ToString();
         // 防止重复加载
         if (!dic_loadingOps.ContainsKey(address))
         {
@@ -95,7 +105,7 @@ public class ActManager
     /// <summary>
     /// 卸载指定的Act（GameObject）;scope:0:发送卸载事件，1：不发送
     /// </summary>
-    public void UnloadAct(string address,int scope=0)
+    public void UnloadAct(string address)
     {
         if (dic_acts.ContainsKey(address))
         {
@@ -104,8 +114,8 @@ public class ActManager
             if (actBase != null)
             {
                 actBase.OnUnload();  
-                GameObject.Destroy(actBase.gameObject);
                 actBase.OnUnloaded();  
+                GameObject.Destroy(actBase.gameObject);
             }
 
             dic_acts.Remove(address);
@@ -130,7 +140,7 @@ public class ActManager
         var actList = dic_acts.Keys.ToList();
         foreach (var address in actList)
         {
-            UnloadAct(address,scope:1);
+            UnloadAct(address);
         }
     }
     #endregion

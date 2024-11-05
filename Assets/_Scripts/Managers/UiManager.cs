@@ -4,32 +4,32 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using static UnityEngine.Rendering.HDROutputUtils;
 
 #region defines
+
 public struct SUILoad
 {
     public string Type;
 }
-public struct SUILoaded
+public struct SUIShow
 {
     public string Type;
 }
-public struct SUIUnload
+public struct SUIHide
 {
     public string Type;
 }
-public struct SUIUnloaded
+public struct SUIDestory
 {
     public string Type;
 }
 #endregion
 
-public class UIManager 
+public class UIManager
 {
     #region Fields
     // 存储已加载的UI实例
-    private Dictionary<Type, UIBase> dic_Uis = new Dictionary<Type, UIBase>();
+    private Dictionary<Type, ViewBase> dic_Uis = new Dictionary<Type, ViewBase>();
 
     // 存储加载的异步操作，避免重复加载
     private Dictionary<Type, AsyncOperationHandle<GameObject>> dic_LoadingOps = new Dictionary<Type, AsyncOperationHandle<GameObject>>();
@@ -64,7 +64,7 @@ public class UIManager
     /// <summary>
     /// 获取UI实例，如果已经加载则直接返回，否则通过Addressables异步加载
     /// </summary>
-    private async Task<T> LoadUI<T>() where T : UIBase
+    private async Task<T> LoadUI<T>() where T : ViewBase
     {
         var type = typeof(T);
 
@@ -119,7 +119,7 @@ public class UIManager
     /// <summary>
     /// 显示UI，如果没有加载则异步加载后显示
     /// </summary>
-    public async Task<T> ShowUI<T>() where T : UIBase
+    public async Task<T> ShowUI<T>() where T : ViewBase
     {
         var ui = await LoadUI<T>();
         if (ui != null)
@@ -133,7 +133,7 @@ public class UIManager
     /// <summary>
     /// 隐藏指定的UI
     /// </summary>
-    public void HideUI<T>() where T : UIBase
+    public void HideUI<T>() where T : ViewBase
     {
         var type = typeof(T);
         if (dic_Uis.ContainsKey(type))
@@ -147,7 +147,7 @@ public class UIManager
     /// <summary>
     /// 销毁指定的UI并卸载资源
     /// </summary>
-    public void DestroyUI<T>() where T : UIBase
+    public void DestroyUI<T>() where T : ViewBase
     {
         var type = typeof(T);
         if (dic_Uis.ContainsKey(type))

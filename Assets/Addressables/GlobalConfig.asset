@@ -12,5 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887e687b59bbd2e4ea644ffdcd113b41, type: 3}
   m_Name: GlobalConfig
   m_EditorClassIdentifier: 
-  MaxStageSteps: 3
-  StageMapSlelectCount: 3
+  StarMinEnergy: 5
+  StarMaxEnergy: 10
+  InitCount: 200
+  FieldRowCount: 100
+  RepulsionApplyCellCount: 2
+  GravitationApplyCount: 50
+  FieldColCount: 200
+  GridSize: 0.2
+  GravitationalConstant: 1
+  Center: {x: 0, y: 0, z: 0}

@@ -15,23 +15,13 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: f44c9d6b9594f2346985918f04288be1
   m_SerializeEntries:
-  - m_GUID: 094d863107ce6ae459ad0b572b5d8ecb
-    m_Address: MapStoryAct
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 120fabc7913fd0540a07da3763fd98e8
-    m_Address: MapRestAct
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a5a52d106420ae48b416adc5afb1046
-    m_Address: MainAct
+    m_Address: HomeAct
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4e17b3b00b043e24fa0a7198050ae37b
-    m_Address: MapAct
+  - m_GUID: 4486ca85ea4aaf642bd592b59ca8bda2
+    m_Address: CharacterConfig
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -41,37 +31,32 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7649907b078ede94499db32030cfac47
-    m_Address: HomeUI
+    m_Address: HomePanel
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 78be25d185124cc478b7cb627fe33aa8
-    m_Address: StageUI
+  - m_GUID: 8638c1c516255e542b28e0c95bfb2f7e
+    m_Address: BurstAndJobsAct
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 876e1a07560b34343acf0de959bfee4e
-    m_Address: StageAct
+  - m_GUID: b9a3bd2dc73b6f241a691d581a6284aa
+    m_Address: ProfilerPanel
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 934b7b09ec7ee2948847c024d611258e
-    m_Address: Map
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cf84890937c409c4d9b32b2240e6217f
-    m_Address: MapBoxAct
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e62d54c3745e78142a3c2a78ad6b9f87
-    m_Address: Stage
+  - m_GUID: d24cdd899810f2f42a9b6ce1a29217f9
+    m_Address: MonoBehaviorAct
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb9b06fb81586254d93c72320c61f038
     m_Address: UIRoot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff64a1c5194c0e346992740d062c74b8
+    m_Address: EcsAct
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

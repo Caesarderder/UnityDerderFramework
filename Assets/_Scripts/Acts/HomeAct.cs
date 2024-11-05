@@ -1,15 +1,19 @@
 using System.Threading.Tasks;
 public class HomeAct : ActBase
 {
-
+    TestDataModule _testDataModule;
     public override async Task OnLoad()
     {
         _=base.OnLoad();
-        var uiManager=GContext.Container.ResloveSingleton<UIManager>();
-        await uiManager.ShowUI<HomeUI>();
+        _testDataModule = DataModule.Resolve<TestDataModule>();
+
+        var uiManager = Manager<UIManager>.Inst;
+        var num = _testDataModule.GetTestSavedData();
+        var panel = await uiManager.ShowUI<HomePanel>();
+        panel.Init(num);
     }
 
-    public override void OnLoaded()
+    public override async void OnLoaded()
     {
         base.OnLoaded();
     }
@@ -17,7 +21,8 @@ public class HomeAct : ActBase
     public override void OnUnload()
     {
         base.OnUnload();
-        GContext.Container.ResloveSingleton<UIManager>().DestroyUI<HomeUI>();
+        Manager<UIManager>.Inst.DestroyUI<HomePanel>();
+        //Manager<UIManager>.Inst.ShowUI<ProfilerPanel>();
     }
 
     public override void OnUnloaded()

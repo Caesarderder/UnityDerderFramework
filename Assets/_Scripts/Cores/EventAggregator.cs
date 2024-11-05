@@ -40,7 +40,8 @@ public class EventAggregator
         var type = typeof(T);
         if (dic_eventHandlers.ContainsKey(type))
         {
-            foreach (var handler in dic_eventHandlers[type])
+            var handlers = dic_eventHandlers[type].ToArray();
+            foreach (var handler in handlers)
             {
                 handler(eventToPublish);
             }
